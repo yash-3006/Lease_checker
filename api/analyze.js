@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   try {
     const { pdf } = req.body || {};
     if (!pdf) return res.status(400).json({ error: 'No PDF received.' });
-    const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+    const model = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
     const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
